@@ -4,7 +4,7 @@ from datetime import datetime
 
 application = Flask(__name__)
 
-@app.route("/debug/")
+@application.route("/debug/")
 def return_hostname():
     return "This is an example wsgi app served from {} to {}".format(socket.gethostname(), request.remote_addr)
 
