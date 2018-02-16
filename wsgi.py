@@ -6,6 +6,11 @@ application = Flask(__name__)
 
 @application.route("/")
 def hello():
+    hostname = socket.gethostname()
+    timestamp = str(datetime.now())
+    file = open("/mnt/log","a")
+    file.write(timestamp + ":" + hostname +  "\n")
+    file.close()
     
     file = open("mnt/log","r")
     out = file.read()
@@ -15,8 +20,3 @@ def hello():
 
 if __name__ == "__main__":
     application.run()
-    hostname = socket.gethostname()
-    timestamp = str(datetime.now())
-    file = open("/mnt/log","a")
-    file.write(timestamp + ":" + hostname +  "\n")
-    file.close()
