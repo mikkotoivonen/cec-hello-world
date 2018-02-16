@@ -5,7 +5,9 @@ application = Flask(__name__)
 
 @application.route("/")
 def hello():
-
+    file = open("/mnt/log","w")
+    file.write(timestamp + ":" + hostname +  "\n")
+    file.close()
     return "Hello World! Greetings from "+socket.gethostname()+"\n"
 
 
