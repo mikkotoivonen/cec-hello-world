@@ -1,13 +1,16 @@
 import socket
 from flask import Flask
+from datetime import datetime
 
 application = Flask(__name__)
 
 @application.route("/")
 def hello():
-    #file = open("/mnt/log","w")
-    #file.write(timestamp + ":" + hostname +  "\n")
-    #file.close()
+
+    with open("/mnt/log", "a") as myfile:
+        tmstmp = str(datetime.now())
+        myfile.write(tmstmp+":"+socket.gethostname()+"\n")
+        
     file = open("/mnt/log","r")
     out = file.read()
     file.close()
