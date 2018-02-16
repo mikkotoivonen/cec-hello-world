@@ -5,9 +5,8 @@ application = Flask(__name__)
 
 @application.route("/")
 def hello():
-    hostname = socket.gethostname()
-    timestamp = str(datetime.now())
-    return "Hello World! Greetings from "+hostname + " " +timestamp+"\n"
+
+    return "Hello World! Greetings from "+socket.gethostname()+"\n"
 
 
 if __name__ == "__main__":
