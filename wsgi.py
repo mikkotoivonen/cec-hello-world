@@ -9,12 +9,12 @@ def hello():
 
     with open("/mnt/log", "a") as myfile:
         tmstmp = str(datetime.now())
-        myfile.write(tmstmp+":"+socket.gethostname()+"\n")
+        myfile.write(tmstmp+":"+socket.gethostname()+"<\br>\n")
         
     file = open("/mnt/log","r")
     out = file.read()
     file.close()
-    return "Hello World! Greetings from "+socket.gethostname()+out+"\n"
+    return out+"\n"
 
 
 if __name__ == "__main__":
